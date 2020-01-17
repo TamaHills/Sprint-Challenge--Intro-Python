@@ -90,7 +90,6 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 
-
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
     # normalize input to upper and lower limits
     lat_upper = lat1 if lat1 > lat2 else lat2
@@ -104,3 +103,9 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
     within = [city for city in cities if is_within_square(city.lat, city.lon)]
 
     return within
+
+
+if __name__ == '__main__':
+    lat1, lon1, lat2, lon2 = [float(point) for point in input('->').split(' ')]
+    for city in cityreader_stretch(lat1, lon1, lat2, lon2, cities):
+        print(city)
